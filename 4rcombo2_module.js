@@ -1,7 +1,7 @@
 var ctx, origx, origy, sumq, suma;
 function r4combo2() {
-    //r1 in series with r2//(r3 + r4)
-    var emf, r1, r2, r3, res1, res2, res3, res4, res23, res123, rest, isup, i2, i3, i4, i123, v1, v23;
+    //(r1 in series with r2//r3)//r4
+    var emf, r1, r2, r3, res1, res2, res3, res4, res23, res123, rest, isup, i2, i3, i4, i123, v1, v23, p3;
     document.getElementById("myCanvas");
     myCanvas.height = 400;
     myCanvas.width = 615;
@@ -25,7 +25,7 @@ function r4combo2() {
         r4 = rgen();
     } while(r1 === r2 || r1 === r3 || r1 === r4 || r2 === r3 || r2 === r4 || r3 === r4 || 
             (r1 < 1000 && r2 < 1000 && r3 < 1000) && r4 < 1000 || 
-            Math.pow(Math.pow(r2, -1) + Math.pow(r3 + r4, -1), -1) < 50)     //r values unique, atleast 1 >1000 and r23 > 50 (avoids tiny v23)
+            Math.pow(Math.pow(r2, -1) + Math.pow(r3, -1), -1) < 50)     //r values unique, atleast 1 >1000 and r23 > 50 (avoids tiny v23)
     
     res1 = irvformat(r1, "r");
     res2 = irvformat(r2, "r");
@@ -41,6 +41,7 @@ function r4combo2() {
     v23 = irvformat(emf - v1[4], "v");
     i2 = irvformat(v23[4] / res2[4], "i");
     i3 = irvformat(v23[4] / res3[4], "i");
+    p3 = irvformat(v23[4] * i3[4], "p");
 
     var img = document.getElementById("4rcombob");
     ctx.drawImage(img, origx, origy, 531, 375);
@@ -61,8 +62,9 @@ function r4combo2() {
 
     sumq += "For the circuit shown, calculate<BR> - the total resistance (R<sub>T</sub>) to 2 decimal places in \u03A9 or k\u03A9 as ";
     sumq += "appropriate,<BR> - the supply current (I<sub>S</sub>) to 2 decimal places in A or mA as appropriate,<BR> - the potential ";
-    sumq += "difference across each resistor in V or mV to 2 decimal places as appropriate and<BR> - the current flowing in each ";
-    sumq += "resistor to 2 decimal places in A or mA as appropriate.";
+    sumq += "difference across each resistor in V or mV to 2 decimal places as appropriate,<BR> - the current flowing in each ";
+    sumq += "resistor to 2 decimal places in A or mA as appropriate and<BR> - the power dissipated in R<sub>3</sub>";
+    sumq += ", to 2 decimal places in mW, W or kW as appropriate.";
 
     suma += "$$\\begin{aligned}\\frac{1}{R_{23}}&=\\frac{1}{R_2}+\\frac{1}{R_3}\\\\[5pt]";
     suma += "\\frac{1}{R_{23}}&=\\frac{1}{" + res2[0] + res2[2] + "}+\\frac{1}{" + res3[0] + res3[2] + "}\\\\[5pt]";
@@ -96,7 +98,11 @@ function r4combo2() {
     suma += "&=\\underline{\\mathbf{" + i2[1] + "\\ " + i2[3] + "\\ (2\\ dp)}}\\\\[5pt]";
     suma += "I_3&=\\frac{V_{23}}{R_3}\\\\[5pt]";
     suma += "&=\\frac{" + v23[0] + v23[2] + "}{" + res3[0] + res3[2] + "}\\\\[5pt]";
-    suma += "&=\\underline{\\mathbf{" + i3[1] + "\\ " + i3[3] + "\\ (2\\ dp)}}\\end{aligned}$$";
+    suma += "&=\\underline{\\mathbf{" + i3[1] + "\\ " + i3[3] + "\\ (2\\ dp)}}\\\\[25pt]";
+    suma += "P_3&=V_{23}\\times I_3\\\\[5pt]";
+    suma += "&=" + v23[0] + v23[2] + "\\times" + i3[0] + i3[2] + "\\\\[5pt]";
+    suma += "&=\\underline{\\mathbf{" + p3[1] + "\\ " + p3[3] + "\\ (2\\ dp)}}";
+    suma += "\\end{aligned}$$";
 
     document.getElementById("q").innerHTML = sumq;
     document.getElementById("btnSoln").style.visibility="visible";

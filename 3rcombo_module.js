@@ -1,7 +1,7 @@
 var ctx, origx, origy, sumq, suma;
 function r3combo() {
     //r1 in series with r2//r3
-    var emf, r1, r2, r3, res1, res2, res3, res23, rest, isup, v1, v23, i2, i3;
+    var emf, r1, r2, r3, res1, res2, res3, res23, rest, isup, v1, v23, i2, i3, p1, p2, p3;
     document.getElementById("myCanvas");
     myCanvas.height = 400;
     myCanvas.width = 600;
@@ -35,6 +35,9 @@ function r3combo() {
     v23 = irvformat(emf - v1[4], "v");
     i2 = irvformat(v23[4] / r2, "i");
     i3 = irvformat(v23[4] / r3, "i");
+    p1 = irvformat(Math.pow(isup[4], 2) * res1[4], "p");
+    p2 = irvformat(Math.pow(v23[4], 2) / res2[4], "p");
+    p3 = irvformat(v23[4] * i3[4], "p");
 
     var img = document.getElementById("3rcombo1");
     ctx.drawImage(img, origx, origy, 531, 375);
@@ -53,8 +56,9 @@ function r3combo() {
 
     sumq += "For the circuit shown, calculate<BR> - the total resistance (R<sub>T</sub>) to 2 decimal places in \u03A9 or k\u03A9 as ";
     sumq += "appropriate,<BR> - the supply current (I<sub>S</sub>) to 2 decimal places in A or mA as appropriate,<BR> - the potential difference ";
-    sumq += "across each resistor in V or mV to 2 decimal places as appropriate and<BR> - the current flowing in the 2 parallel resistors ";
-    sumq += " to 2 decimal places in A or mA as appropriate.";
+    sumq += "across each resistor in V or mV to 2 decimal places as appropriate,<BR> - the current flowing in the 2 parallel resistors ";
+    sumq += " to 2 decimal places in A or mA as appropriate and<BR> - the power dissipated in each resistor, ";
+    sumq += "to 2 decimal places in mW, W or kW as appropriate.";
 
     suma += "$$\\begin{aligned}\\frac{1}{R_{23}}&=\\frac{1}{R_2}+\\frac{1}{R_3}\\\\[5pt]";
     suma += "\\frac{1}{R_{23}}&=\\frac{1}{" + res2[0] + res2[2] + "}+\\frac{1}{" + res3[0] + res3[2] + "}\\\\[5pt]";
@@ -77,7 +81,18 @@ function r3combo() {
     suma += "&=\\underline{\\mathbf{" + i2[1] + "\\ " + i2[3] + "\\ (2\\ dp)}}\\\\[5pt]";
     suma += "I_3&=\\frac{V_{23}}{R_3}\\\\[5pt]";
     suma += "&=\\frac{" + v23[0] + v23[2] + "}{" + res3[0] + res3[2] + "}\\\\[5pt]";
-    suma += "&=\\underline{\\mathbf{" + i3[1] + "\\ " + i3[3] + "\\ (2\\ dp)}}\\end{aligned}$$";
+    suma += "&=\\underline{\\mathbf{" + i3[1] + "\\ " + i3[3] + "\\ (2\\ dp)}}\\\\[25pt]";
+    suma += "P_1&={I_S}^2\\times R_1\\\\[5pt]";
+    suma += "&={" + isup[0] + isup[2] + "}^2\\times" + res1[0] + res1[2] + "\\\\[5pt]";
+    suma += "&=\\underline{\\mathbf{" + p1[1] + "\\ " + p1[3] + "\\ (2\\ dp)}}\\\\[25pt]";
+    suma += "P_2&=\\frac{{V_{23}}^2}{R_2}\\\\[5pt]";
+    suma += "&=\\frac{{" + v23[0] + v23[2] + "}^2}{" + res2[0] + res2[2] + "}\\\\[5pt]";
+    suma += "&=\\underline{\\mathbf{" + p2[1] + "\\ " + p2[3] + "\\ (2\\ dp)}}\\\\[25pt]";
+    suma += "P_3&=V_{23}\\times I_3\\\\[5pt]";
+    suma += "&=" + v23[0] + v23[2] + "\\times" + i3[0] + i3[2] + "\\\\[5pt]";
+    suma += "&=\\underline{\\mathbf{" + p3[1] + "\\ " + p3[3] + "\\ (2\\ dp)}}\\\\[5pt]";
+    suma += "&Note:\\ Different\\ power\\ formulas\\ used\\\\[5pt]&to\\ illustrate\\ the\\ options."
+    suma += "\\end{aligned}$$";
 
     document.getElementById("q").innerHTML = sumq;
     document.getElementById("btnSoln").style.visibility="visible";

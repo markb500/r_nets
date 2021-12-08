@@ -1,7 +1,7 @@
 var ctx, origx, origy, sumq, suma;
 function r4combo1() {
     //r1 in series with r2//(r3 + r4)
-    var emf, r1, r2, r3, res1, res2, res3, res4, res34, res234, rest, isup, v1, i2;
+    var emf, r1, r2, r3, res1, res2, res3, res4, res34, res234, rest, isup, v1, i2, p4;
     document.getElementById("myCanvas");
     myCanvas.height = 400;
     myCanvas.width = 600;
@@ -41,6 +41,7 @@ function r4combo1() {
     i34 = irvformat(v234[4] / res34[4], "i");
     v3 = irvformat(i34[4] * res3[4], "v");
     v4 = irvformat(i34[4] * res4[4], "v");
+    p4 = irvformat(v4[4] * i34[4], "p");
 
     var img = document.getElementById("4rcomboa");
     ctx.drawImage(img, origx, origy, 531, 375);
@@ -61,8 +62,9 @@ function r4combo1() {
 
     sumq += "For the circuit shown, calculate<BR> - the total resistance (R<sub>T</sub>) to 2 decimal places in \u03A9 or k\u03A9 as ";
     sumq += "appropriate,<BR> - the supply current (I<sub>S</sub>) to 2 decimal places in A or mA as appropriate,<BR> - the potential ";
-    sumq += "difference across each resistor in V or mV to 2 decimal places as appropriate and<BR> - the current flowing in R<sub>2</sub> ";
-    sumq += "and R<sub>34</sub> to 2 decimal places in A or mA as appropriate.";
+    sumq += "difference across each resistor in V or mV to 2 decimal places as appropriate<BR> - the current flowing in R<sub>2</sub> ";
+    sumq += "and R<sub>34</sub> to 2 decimal places in A or mA as appropriate and<BR> - the power dissipated in R<sub>4</sub>";
+    sumq += ", to 2 decimal places in mW, W or kW as appropriate.";
 
     suma += "$$\\begin{aligned}R_{34}&=R_3+R_4\\\\[5pt]";
     suma += "&=" + res3[0] + res3[2] + "+" + res4[0] + res4[2] + "\\\\[5pt]";
@@ -94,7 +96,11 @@ function r4combo1() {
     suma += "&=\\underline{\\mathbf{" + v3[1] + "\\ " + v3[3] + "\\ (2\\ dp)}}\\\\[5pt]";
     suma += "V_4&=I_{34}\\times R_4\\\\[5pt]";
     suma += "&=" + i34[0] + i34[2] + "\\times" + res4[0] + res4[2] + "\\\\[5pt]";
-    suma += "&=\\underline{\\mathbf{" + v4[1] + "\\ " + v4[3] + "\\ (2\\ dp)}}\\end{aligned}$$";
+    suma += "&=\\underline{\\mathbf{" + v4[1] + "\\ " + v4[3] + "\\ (2\\ dp)}}\\\\[25pt]";
+    suma += "P_4&=V_4\\times I_{34}\\\\[5pt]";
+    suma += "&=" + v4[0] + v4[2] + "\\times" + i34[0] + i34[2] + "\\\\[5pt]";
+    suma += "&=\\underline{\\mathbf{" + p4[1] + "\\ " + p4[3] + "\\ (2\\ dp)}}"
+    suma += "\\end{aligned}$$";
 
     document.getElementById("q").innerHTML = sumq;
     document.getElementById("btnSoln").style.visibility="visible";

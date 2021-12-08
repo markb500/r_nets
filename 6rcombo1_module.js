@@ -2,7 +2,7 @@ var ctx, origx, origy, sumq, suma;
 function r6combo1() {
     //r1 in series with r2//((r3 + r6)//(r4 + r5))
     var emf, r1, r2, r3, r4, r5, r6, res1, res2, res3, res4, res5, res6, res45, res3456, res23456, rest, isup, v1;
-    var v23456, i2, i3456, v3, v45, v6, i4, i5;
+    var v23456, i2, i3456, v3, v45, v6, i4, i5, p6;
     document.getElementById("myCanvas");
     myCanvas.height = 400;
     myCanvas.width = 615;
@@ -51,6 +51,7 @@ function r6combo1() {
         v6 = irvformat(i3456[4] * r6, "v");
         i4 = irvformat(v45[4] / r4, "i");
         i5 = irvformat(v45[4] / r5, "i");
+        p6 = irvformat(v6[4] * i3456[4], "p");
     } while(i3456[4] <= 0)
 
     var img = document.getElementById("6rcomboa");
@@ -76,8 +77,9 @@ function r6combo1() {
 
     sumq += "For the circuit shown, calculate<BR> - the total resistance (R<sub>T</sub>) to 2 decimal places in \u03A9 or k\u03A9 as ";
     sumq += "appropriate,<BR> - the supply current (I<sub>S</sub>) to 2 decimal places in A or mA as appropriate,<BR> - the potential ";
-    sumq += "difference across each resistor in V or mV to 2 decimal places as appropriate and<BR> - the current flowing in each ";
-    sumq += "resistor to 2 decimal places in A or mA as appropriate.";
+    sumq += "difference across each resistor in V or mV to 2 decimal places as appropriate,<BR> - the current flowing in each ";
+    sumq += "resistor to 2 decimal places in A or mA as appropriate and <BR> - the power dissipated in R<sub>6</sub>";
+    sumq += ", to 2 decimal places in mW, W or kW as appropriate.";
 
     suma += "$$\\begin{aligned}\\frac{1}{R_{45}}&=\\frac{1}{R_4}+\\frac{1}{R_5}\\\\[5pt]";
     suma += "\\frac{1}{R_{45}}&=\\frac{1}{" + res4[0] + res4[2] + "}+\\frac{1}{" + res5[0] + res5[2] + "}\\\\[5pt]";
@@ -123,6 +125,9 @@ function r6combo1() {
     suma += "I_5&=\\frac{V_{45}}{R_5}\\\\[5pt]";
     suma += "&=\\frac{" + v45[0] + v45[2] + "}{" + res5[0] + res5[2] + "}\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + i5[1] + "\\ " + i5[3] + "\\ (2\\ dp)}}\\\\[25pt]";
+    suma += "P_6&=V_6\\times I_{3456}\\\\[5pt]";
+    suma += "&=" + v6[0] + v6[2] + "\\times" + i3456[0] + i3456[2] + "\\\\[5pt]";
+    suma += "&=\\underline{\\mathbf{" + p6[1] + "\\ " + p6[3] + "\\ (2\\ dp)}}";
     suma += "\\end{aligned}$$";
 
     document.getElementById("q").innerHTML = sumq;

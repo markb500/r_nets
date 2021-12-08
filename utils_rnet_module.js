@@ -90,6 +90,8 @@ function irvformat(value, unit) {
             unit = "mA";
         } else if(unit === "v") {
             unit = "mV";
+        } else if(unit === "p") {
+            unit = "mW";
         }
         calc = value / 1000;
     } else if(value >= 1000) {
@@ -102,6 +104,8 @@ function irvformat(value, unit) {
             unit = "kA";
         } else if(unit === "v") {
             unit = "kV";
+        } else if(unit === "p") {
+            unit = "kW";
         }
         calc = value * 1000;
     } else {
@@ -114,6 +118,8 @@ function irvformat(value, unit) {
             unit = "A";
         } else if(unit === "v") {
             unit = "V";
+        } else if(unit === "p") {
+            unit = "W";
         }
         calc = value;
     }
