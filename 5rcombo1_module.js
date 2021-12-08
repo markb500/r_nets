@@ -97,7 +97,7 @@ function r5combo1() {
     suma += "I_{1234}&=\\frac{E}{R_{1234}}\\\\[5pt]";
     suma += "&=\\frac{" + emf + "}{" + res1234[0] + res1234[2] + "}\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + i1234[1] + "\\ " + i1234[3] + "\\ (2\\ dp)}}\\\\[25pt]";
-    suma += "V_1&=I_{1234}\\times R_1\\\\[5pt]";
+    suma += "V_1&=I_{1234} R_1\\\\[5pt]";
     suma += "&=" + i1234[0] + i1234[2] + "\\times" + res1[0] + res1[2] + "\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + v1[1] + "\\ " + v1[3] + "\\ (2\\ dp)}}\\\\[25pt]";
     suma += "V_{234}&=E-V_1\\\\[5pt]";
@@ -109,13 +109,13 @@ function r5combo1() {
     suma += "I_{34}&=I_{1234}-I_2\\\\[5pt]";
     suma += "&=" + i1234[0] + i1234[2] + "-" + i2[0] + i2[2] + "\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + i34[1] + "\\ " + i34[3] + "\\ (2\\ dp)}}\\\\[25pt]";
-    suma += "V_3&=I_{34}\\times R_{3}\\\\[5pt]";
+    suma += "V_3&=I_{34} R_{3}\\\\[5pt]";
     suma += "&=" + i34[0] + i34[2] + "\\times" + res3[0] + res3[2] + "\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + v3[1] + "\\ " + v3[3] + "\\ (2\\ dp)}}\\\\[25pt]";
-    suma += "V_4&=I_{34}\\times R_{4}\\\\[5pt]";
+    suma += "V_4&=I_{34} R_{4}\\\\[5pt]";
     suma += "&=" + i34[0] + i34[2] + "\\times" + res4[0] + res4[2] + "\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + v4[1] + "\\ " + v4[3] + "\\ (2\\ dp)}}\\\\[25pt]";
-    suma += "P_5&=V_5\\times I_5\\\\[5pt]";
+    suma += "P_5&=V_5 I_5\\\\[5pt]";
     suma +="&=" + emf + "\\times" + i5[0] + i5[2] + "\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + p5[1] + "\\ " + p5[3] + "\\ (2\\ dp)}}"
     suma += "\\end{aligned}$$";

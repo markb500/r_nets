@@ -71,13 +71,13 @@ function parallelr() {
                                                                                         i2[3] + "\\ (2\\ dp)}}\\\\[5pt]";
     suma += "I_3&=\\frac{V_3}{R_3}=\\frac{" + emf + "}{" + res3[0] + res3[2] + "}=\\underline{\\mathbf{" + i3[1] + "\\ " + 
                                                                                         i3[3] + "\\ (2\\ dp)}}\\\\[25pt]";
-    suma += "P_1&={I_1}^2\\times R_1\\\\[5pt]";
+    suma += "P_1&={I_1}^2 R_1\\\\[5pt]";
     suma += "&={" + i1[0] + i1[2] + "}^2\\times" + res1[0] + res1[2] + "\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + p1[1] + "\\ " + p1[3] + "\\ (2\\ dp)}}\\\\[25pt]";
     suma += "P_2&=\\frac{{V_{2}}^2}{R_2}\\\\[5pt]";
     suma += "&=\\frac{{" + emf + "}^2}{" + res2[0] + res2[2] + "}\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + p2[1] + "\\ " + p2[3] + "\\ (2\\ dp)}}\\\\[25pt]";
-    suma += "P_3&=V_3\\times I_3\\\\[5pt]";
+    suma += "P_3&=V_3 I_3\\\\[5pt]";
     suma += "&=" + emf + "\\times" + i3[0] + i3[2] + "\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + p3[1] + "\\ " + p3[3] + "\\ (2\\ dp)}}\\\\[5pt]";
     suma += "&Note:\\ Different\\ power\\ formulas\\ used\\\\[5pt]&to\\ illustrate\\ the\\ options."

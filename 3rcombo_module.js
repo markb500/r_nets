@@ -82,13 +82,13 @@ function r3combo() {
     suma += "I_3&=\\frac{V_{23}}{R_3}\\\\[5pt]";
     suma += "&=\\frac{" + v23[0] + v23[2] + "}{" + res3[0] + res3[2] + "}\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + i3[1] + "\\ " + i3[3] + "\\ (2\\ dp)}}\\\\[25pt]";
-    suma += "P_1&={I_S}^2\\times R_1\\\\[5pt]";
+    suma += "P_1&={I_S}^2 R_1\\\\[5pt]";
     suma += "&={" + isup[0] + isup[2] + "}^2\\times" + res1[0] + res1[2] + "\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + p1[1] + "\\ " + p1[3] + "\\ (2\\ dp)}}\\\\[25pt]";
     suma += "P_2&=\\frac{{V_{23}}^2}{R_2}\\\\[5pt]";
     suma += "&=\\frac{{" + v23[0] + v23[2] + "}^2}{" + res2[0] + res2[2] + "}\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + p2[1] + "\\ " + p2[3] + "\\ (2\\ dp)}}\\\\[25pt]";
-    suma += "P_3&=V_{23}\\times I_3\\\\[5pt]";
+    suma += "P_3&=V_{23} I_3\\\\[5pt]";
     suma += "&=" + v23[0] + v23[2] + "\\times" + i3[0] + i3[2] + "\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + p3[1] + "\\ " + p3[3] + "\\ (2\\ dp)}}\\\\[5pt]";
     suma += "&Note:\\ Different\\ power\\ formulas\\ used\\\\[5pt]&to\\ illustrate\\ the\\ options."

@@ -98,7 +98,7 @@ function r6combo1() {
     suma += "I_S&=\\frac{E}{R_T}\\\\[5pt]";
     suma += "&=\\frac{" + emf + "}{" + rest[0] + rest[2] + "}\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + isup[1] + "\\ " + isup[3] + "\\ (2\\ dp)}}\\\\[25pt]";
-    suma += "V_1&=I_S\\times R_1\\\\[5pt]";
+    suma += "V_1&=I_S R_1\\\\[5pt]";
     suma += "&=" + isup[0] + isup[2] + "\\times" + res1[0] + res1[2] + "\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + v1[1] + "\\ " + v1[3] + "\\ (2\\ dp)}}\\\\[25pt]";
     suma += "V_{23456}&=E-V_1\\\\[5pt]";
@@ -110,13 +110,13 @@ function r6combo1() {
     suma += "I_{3456}&=\\frac{V_{23456}}{R_{3456}}\\\\[5pt]";
     suma += "&=\\frac{" + v23456[0] + v23456[2] + "}{" + res3456[0] + res3456[2] + "}\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + i3456[1] + "\\ " + i3456[3] + "\\ (2\\ dp)}}\\\\[25pt]";
-    suma += "V_3&=I_{3456}\\times R_3\\\\[5pt]";
+    suma += "V_3&=I_{3456} R_3\\\\[5pt]";
     suma += "&=" + i3456[0] + i3456[2] + "\\times" + res3[0] + res3[2] + "\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + v3[1] + "\\ " + v3[3] + "\\ (2\\ dp)}}\\\\[25pt]";
-    suma += "V_{45}&=I_{3456}\\times R_{45}\\\\[5pt]";
+    suma += "V_{45}&=I_{3456} R_{45}\\\\[5pt]";
     suma += "&=" + i3456[0] + i3456[2] + "\\times" + res45[0] + res45[2] + "\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + v45[1] + "\\ " + v45[3] + "\\ (2\\ dp)}}\\\\[25pt]";
-    suma += "V_6&=I_{3456}\\times R_6\\\\[5pt]";
+    suma += "V_6&=I_{3456} R_6\\\\[5pt]";
     suma += "&=" + i3456[0] + i3456[2] + "\\times" + res6[0] + res6[2] + "\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + v6[1] + "\\ " + v6[3] + "\\ (2\\ dp)}}\\\\[25pt]";
     suma += "I_4&=\\frac{V_{45}}{R_4}\\\\[5pt]";
@@ -125,7 +125,7 @@ function r6combo1() {
     suma += "I_5&=\\frac{V_{45}}{R_5}\\\\[5pt]";
     suma += "&=\\frac{" + v45[0] + v45[2] + "}{" + res5[0] + res5[2] + "}\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + i5[1] + "\\ " + i5[3] + "\\ (2\\ dp)}}\\\\[25pt]";
-    suma += "P_6&=V_6\\times I_{3456}\\\\[5pt]";
+    suma += "P_6&=V_6 I_{3456}\\\\[5pt]";
     suma += "&=" + v6[0] + v6[2] + "\\times" + i3456[0] + i3456[2] + "\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + p6[1] + "\\ " + p6[3] + "\\ (2\\ dp)}}";
     suma += "\\end{aligned}$$";

@@ -87,10 +87,10 @@ function r4combo2() {
     suma += "I_{123}&=I_S-I_4\\\\[5pt]";
     suma += "&=" + isup[0] + isup[2] + "-" + i4[0] + i4[2] + "\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + i123[1] + "\\ " + i123[3] + "\\ (2\\ dp)}}\\\\[25pt]";
-    suma += "V_1&=I_{123}\\times R_1\\\\[5pt]";
+    suma += "V_1&=I_{123} R_1\\\\[5pt]";
     suma += "&=" + i123[0] + i123[2] + "\\times" + res1[0] + res1[2] + "\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + v1[1] + "\\ " + v1[3] + "\\ (2\\ dp)}}\\\\[5pt]";
-    suma += "V_{23}&=I_{123}\\times R_{23}\\\\[5pt]";
+    suma += "V_{23}&=I_{123} R_{23}\\\\[5pt]";
     suma += "&=" + i123[0] + i123[2] + "\\times" + res23[0] + res23[2] + "\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + v23[1] + "\\ " + v23[3] + "\\ (2\\ dp)}}\\\\[25pt]";
     suma += "I_2&=\\frac{V_{23}}{R_2}\\\\[5pt]";
@@ -99,7 +99,7 @@ function r4combo2() {
     suma += "I_3&=\\frac{V_{23}}{R_3}\\\\[5pt]";
     suma += "&=\\frac{" + v23[0] + v23[2] + "}{" + res3[0] + res3[2] + "}\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + i3[1] + "\\ " + i3[3] + "\\ (2\\ dp)}}\\\\[25pt]";
-    suma += "P_3&=V_{23}\\times I_3\\\\[5pt]";
+    suma += "P_3&=V_{23} I_3\\\\[5pt]";
     suma += "&=" + v23[0] + v23[2] + "\\times" + i3[0] + i3[2] + "\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + p3[1] + "\\ " + p3[3] + "\\ (2\\ dp)}}";
     suma += "\\end{aligned}$$";

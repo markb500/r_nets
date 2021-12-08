@@ -70,13 +70,13 @@ function seriesr() {
                 v2[1] + "\\ " + v2[3] + "\\ (2\\ dp)}}\\\\[5pt]";
     suma += "V_3&=I_S R_3=" + isup[0] + isup[2] + "\\times" + res3[0] + res3[2] + "=\\underline{\\mathbf{" + 
                 v3[1] + "\\ " + v3[3] + "\\ (2\\ dp)}}\\\\[25pt]";
-    suma += "P_1&={I_1}^2\\times R_1\\\\[5pt]";
+    suma += "P_1&={I_1}^2 R_1\\\\[5pt]";
     suma += "&={" + isup[0] + isup[2] + "}^2\\times" + res1[0] + res1[2] + "\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + p1[1] + "\\ " + p1[3] + "\\ (2\\ dp)}}\\\\[25pt]";
     suma += "P_2&=\\frac{{V_{2}}^2}{R_2}\\\\[5pt]";
     suma += "&=\\frac{{" + v2[0] + v2[2] + "}^2}{" + res2[0] + res2[2] + "}\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + p2[1] + "\\ " + p2[3] + "\\ (2\\ dp)}}\\\\[25pt]";
-    suma += "P_3&=V_{3}\\times I_3\\\\[5pt]";
+    suma += "P_3&=V_{3} I_3\\\\[5pt]";
     suma += "&=" + v3[0] + v3[2] + "\\times" + isup[0] + isup[2] + "\\\\[5pt]";
     suma += "&=\\underline{\\mathbf{" + p3[1] + "\\ " + p3[3] + "\\ (2\\ dp)}}\\\\[5pt]";
     suma += "&Note:\\ Different\\ power\\ formulas\\ used\\\\[5pt]&to\\ illustrate\\ the\\ options."
