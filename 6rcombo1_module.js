@@ -52,7 +52,7 @@ function r6combo1() {
         i4 = irvformat(v45[4] / r4, "i");
         i5 = irvformat(v45[4] / r5, "i");
         p6 = irvformat(v6[4] * i3456[4], "p");
-    } while(i3456[4] <= 0)
+    } while(i3456[4] <= 0)      //Avoids negative value cause by use of rounded values in calcs
 
     var img = document.getElementById("6rcomboa");
     ctx.drawImage(img, origx, origy, 531, 375);
