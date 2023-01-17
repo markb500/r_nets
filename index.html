@@ -30,6 +30,25 @@
       tex2jax: {preview: "none"}
     });
 </script>
+<script>
+  //Opens new window when 'secret code' entered. Used for separate view of solutions.
+  const pressed = [];
+  const secretCode = 'chpz';
+  window.addEventListener('keyup', (e) => {
+    pressed.push(e.key);
+    pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+    if (pressed.join('').includes(secretCode)) {
+        SolnWin = window.open('SolnWin.html','SolnWin','resizable=yes,scrollbars=yes');
+    }
+  });
+  
+  function solutionwin() {
+      //Displays solution on 2nd window (SolnWin)
+      var suma2 = suma.replace("<br><br><br><br><br><br><br><br><br><br>", "");  //Removes leading <br>'s if used in solution
+      SolnWin.document.getElementById('a2').innerHTML = suma2;
+      SolnWin.eqnformat('a2');
+    }
+</script>
 <div class="container" style="margin-top:30px">
     <div class="row">
         <div class="col-md-3">
@@ -37,42 +56,42 @@
             <button
                 id="seriesr" 
                 class="btn btn-outline-primary btn-block" 
-                onclick="seriesr(); eqnformat('q')">Series Resistors
+                onclick="seriesr(); eqnformat('q'); solutionwin()">Series Resistors
             </button>
             <button
                 id="parallelr" 
                 class="btn btn-outline-primary btn-block" 
-                onclick="parallelr(); eqnformat('q')">Parallel Resistors
+                onclick="parallelr(); eqnformat('q'); solutionwin()">Parallel Resistors
             </button>
             <button
                 id="3rcombo" 
                 class="btn btn-outline-primary btn-block" 
-                onclick="r3combo(); eqnformat('q')">3 Resistor Network
+                onclick="r3combo(); eqnformat('q'); solutionwin()">3 Resistor Network
             </button>
             <button
                 id="4rcombo1" 
                 class="btn btn-outline-primary btn-block" 
-                onclick="r4combo1(); eqnformat('q')">4 Resistor Network I
+                onclick="r4combo1(); eqnformat('q'); solutionwin()">4 Resistor Network I
             </button>
             <button
                 id="4rcombo2" 
                 class="btn btn-outline-primary btn-block" 
-                onclick="r4combo2(); eqnformat('q')">4 Resistor Network II
+                onclick="r4combo2(); eqnformat('q'); solutionwin()">4 Resistor Network II
             </button>
             <button
                 id="5rcombo1" 
                 class="btn btn-outline-primary btn-block" 
-                onclick="r5combo1(); eqnformat('q')">5 Resistor Network I
+                onclick="r5combo1(); eqnformat('q'); solutionwin()">5 Resistor Network I
             </button>
             <button
                 id="6rcombo1" 
                 class="btn btn-outline-primary btn-block" 
-                onclick="r6combo1(); eqnformat('q')">6 Resistor Network I
+                onclick="r6combo1(); eqnformat('q'); solutionwin()">6 Resistor Network I
             </button>
             <button
                 id="6rcombo2" 
                 class="btn btn-outline-primary btn-block" 
-                onclick="r6combo2(); eqnformat('q')">6 Resistor Network II
+                onclick="r6combo2(); eqnformat('q'); solutionwin()">6 Resistor Network II
             </button>
             <a href="rnetHelp/userhelp.html">
               <button
