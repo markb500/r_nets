@@ -93,7 +93,7 @@ function irvformat(value, unit) {
     if(value < 1) {
         valuefix = dp(value * 1000, 4, 2);
         value = dp(value * 1000, 2, -1);
-        engnot = "\\times10^-3";
+        engnot = "\\times10^{-3}";
         if(unit === "r") {
             unit = "m\u03A9";
         } else if(unit === "i") {
