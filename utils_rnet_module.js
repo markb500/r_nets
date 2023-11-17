@@ -135,3 +135,17 @@ function irvformat(value, unit) {
     }
     return [value, valuefix, engnot, unit, calc];
 }
+
+function QLimitRepeats(arr, x) {
+  //Ensures no repeat question until at least 50% of questions in calling module have been shown.
+  //'arr' stores previous questions for calling module. 'x' is the number of questions in the calling module.
+  var sum;
+  do {
+    sum = rndgen(1, x, 0, 1, -1);
+  } while (arr.includes(sum))
+  arr.push(sum);
+  if (arr.length > Math.ceil(x/2)) {
+    arr.shift();
+  }
+  return arr;
+}
