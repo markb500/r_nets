@@ -1,161 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>R Net Revision App</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script type="text/javascript" id="MathJax-script" async
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
-</script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<style>
-    canvas {
-    position: absolute;
-    right: 0px;
-}
-</style>
-</head>
-<body>
-<div class="py-3 jumbotron text-center" style="margin-bottom:0; background-image:url(images/typhoon_line.png); 
-                background-size:50%; background-repeat:no-repeat; background-position:right center">
-    <img id="cosbadge" width="98" height="135" class="float-left" src="images\Cosbadge.png" alt="cosbadge">
-    <h1><br>Resistor Network Revision Questions<br><br></h1>
-</div>
-<script type="text/x-mathjax-config">   //Ensures equations rendered before display
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resistor Network Revision Questions</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
       "fast-preview": {disabled: true},
       tex2jax: {preview: "none"}
     });
-</script>
-<script>
-  //Opens new window when 'secret code' entered. Used for separate view of solutions.
-  const pressed = [];
-  const secretCode = 'chpz';
-  window.addEventListener('keyup', (e) => {
-    pressed.push(e.key);
-    pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
-    if (pressed.join('').includes(secretCode)) {
-        SolnWin = window.open('SolnWin.html','SolnWin','resizable=yes,scrollbars=yes');
-    }
-  });
-  
-  function solutionwin() {
-      //Displays solution on 2nd window (SolnWin)
-      var suma2 = suma.replace("<br><br><br><br><br><br><br><br><br><br>", "");  //Removes leading <br>'s if used in solution
-      SolnWin.document.getElementById('a2').innerHTML = suma2;
-      SolnWin.eqnformat('a2');
-    }
-</script>
-<div class="container" style="margin-top:30px">
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Skip to main content</a>
+
+  <div class="py-3 jumbotron bg-transparent text-center" style="margin-bottom:0; background-image:url(images/typhoon_line.png);
+                background-size:50%; background-repeat:no-repeat; background-position:right center">
+    <img id="cosbadge" width="98" height="135" class="float-left" src="images/Cosbadge.png" alt="RAF Cosford badge">
+    <h1><br>Resistor Network Revision Questions<br><br></h1>
+  </div>
+
+  <div class="container" style="margin-top:30px">
     <div class="row">
-        <div class="col-md-3">
-            <p>Select a question topic. Each click generates a new question.</p>
-            <button
-                id="seriesr" 
-                class="btn btn-outline-primary btn-block" 
-                onclick="seriesr(); eqnformat('q'); solutionwin()">Series Resistors
-            </button>
-            <button
-                id="parallelr" 
-                class="btn btn-outline-primary btn-block" 
-                onclick="parallelr(); eqnformat('q'); solutionwin()">Parallel Resistors
-            </button>
-            <button
-                id="3rcombo" 
-                class="btn btn-outline-primary btn-block" 
-                onclick="r3combo(); eqnformat('q'); solutionwin()">3 Resistor Network
-            </button>
-            <button
-                id="4rcombo1" 
-                class="btn btn-outline-primary btn-block" 
-                onclick="r4combo1(); eqnformat('q'); solutionwin()">4 Resistor Network I
-            </button>
-            <button
-                id="4rcombo2" 
-                class="btn btn-outline-primary btn-block" 
-                onclick="r4combo2(); eqnformat('q'); solutionwin()">4 Resistor Network II
-            </button>
-            <button
-                id="5rcombo1" 
-                class="btn btn-outline-primary btn-block" 
-                onclick="r5combo1(); eqnformat('q'); solutionwin()">5 Resistor Network I
-            </button>
-            <button
-                id="6rcombo1" 
-                class="btn btn-outline-primary btn-block" 
-                onclick="r6combo1(); eqnformat('q'); solutionwin()">6 Resistor Network I
-            </button>
-            <button
-                id="6rcombo2" 
-                class="btn btn-outline-primary btn-block" 
-                onclick="r6combo2(); eqnformat('q'); solutionwin()">6 Resistor Network II
-            </button>
-            <a href="rnetHelp/userhelp.html">
-              <button
-                id="userhelp" 
-                class="btn btn-outline-primary mt-2">User Help
-              </button>
-            </a>
+      <div class="col-md-3">
+        <p id="topicHint">Select a question topic. Each click generates a new question.</p>
+
+        <button type="button" class="btn btn-outline-primary btn-sm btn-block topic-btn" data-topic="seriesr">Series R</button>
+        <button type="button" class="btn btn-outline-primary btn-sm btn-block topic-btn" data-topic="parallelr">Parallel R</button>
+        <button type="button" class="btn btn-outline-primary btn-sm btn-block topic-btn" data-topic="r3combo">3R Combo</button>
+        <button type="button" class="btn btn-outline-primary btn-sm btn-block topic-btn" data-topic="r4combo1">4R Combo I</button>
+        <button type="button" class="btn btn-outline-primary btn-sm btn-block topic-btn" data-topic="r4combo2">4R Combo II</button>
+        <button type="button" class="btn btn-outline-primary btn-sm btn-block topic-btn" data-topic="r5combo1">5R Combo I</button>
+        <button type="button" class="btn btn-outline-primary btn-sm btn-block topic-btn" data-topic="r6combo1">6R Combo I</button>
+        <button type="button" class="btn btn-outline-primary btn-sm btn-block topic-btn" data-topic="r6combo2">6R Combo II</button>
+
+        <button type="button" id="btnStaffSoln" class="btn btn-outline-primary btn-sm btn-block mt-3">
+          Separate solution window
+        </button>
+        <a id="userhelp" class="btn btn-outline-primary btn-sm mt-2 d-inline-block"
+           href="rnetHelp/userhelp.html" target="_blank" rel="noopener noreferrer">User Help</a>
+
+        <div>
+          <p><br><label for="colourSelect">Select background colour</label></p>
+          <select id="colourSelect" class="form-control form-control-sm">
+            <option value="#ffffff">White</option>
+            <option value="hsla(220,60%,70%,0.3)">Blue</option>
+            <option value="hsla(0,60%,70%,0.3)">Red</option>
+            <option value="hsla(120,60%,70%,0.3)">Green</option>
+          </select>
         </div>
-        <div class="col-md-9">
-            <h3 id="q"></h3>
-            <div class="row">   <!--Ensures Solution & Show me how buttons aren't hidden behind canvas-->
-                <p>
-                    <button 
-                        id="btnSoln" 
-                        tabIndex="0" 
-                        class="btn btn-outline-primary m-3" 
-                        style="visibility:hidden" 
-                        onclick="getElementById('a').innerHTML = suma; eqnformat('a')">
-                        <span class='font-weight-bold'>Show/Hide Solution</span><br />Views : 0
-                    </button>
-                </p>
-                <p>
-                    <a id="noteslink" style="visibility:hidden" href="#">&#128214 Link to Training Notes</a>
-                </p>
-            </div>
-            <div class="row">
-                <script>
-                    document.getElementById("q").innerHTML = "Click a button to select the type of question. " + 
-                    "Each click will generate a new question.<br>Clicking 'solution' will reveal a step-by-step solution.";
-                </script>
-                <canvas id="myCanvas" width="0.5" height="0.5" style="border:none"></canvas>
-                <h4 id="a", style="color:red"></h4>
-            </div>
-            <img id="3rseries" style="visibility:hidden" width="800" height="450" src="images\3R Series.png" alt="3rseries">
-            <img id="3rparallel" style="visibility:hidden" width="800" height="450" src="images\3R Parallel.png" alt="3rparallel">
-            <img id="3rseriescalc" style="visibility:hidden" width="800" height="450" src="images\3R Seriescalc.png" alt="3rseriescalc">
-            <img id="3rparallelcalc" style="visibility:hidden" width="800" height="450" src="images\3R Parallelcalc.png" alt="3rparallelcalc">
-            <img id="3rcombo1" style="visibility:hidden" width="800" height="450" src="images\3R Combo.png" alt="3rcombo1">
-            <img id="4rcomboa" style="visibility:hidden" width="800" height="450" src="images\4R ComboI.png" alt="4rcomboa">
-            <img id="4rcombob" style="visibility:hidden" width="800" height="450" src="images\4R ComboII.png" alt="4rcombob">
-            <img id="5rcomboa" style="visibility:hidden" width="800" height="450" src="images\5R ComboI.png" alt="5rcomboa">
-            <img id="6rcomboa" style="visibility:hidden" width="800" height="450" src="images\6R ComboI.png" alt="6rcomboa">
-            <img id="6rcombob" style="visibility:hidden" width="800" height="450" src="images\6R ComboII.png" alt="6rcombob">
+      </div>
+
+      <div class="col-md-9" id="mainContent">
+        <h2 class="h3" id="q" aria-live="polite" aria-atomic="true" tabindex="-1">
+          Click a topic button to generate a question. Use Show/Hide Solution for a step-by-step answer.
+        </h2>
+        <div class="row align-items-center">
+          <p class="mb-2">
+            <button type="button" id="btnSoln" class="btn btn-outline-primary m-2" style="visibility:hidden" aria-expanded="false">
+              <span class="font-weight-bold">Show/Hide Solution</span><br>
+              Views : <span id="viewCount">0</span>
+            </button>
+          </p>
+          <p class="mb-2">
+            <a id="noteslink" style="visibility:hidden" href="#">&#128214; Link to Training Notes</a>
+          </p>
         </div>
+        <canvas id="myCanvas" width="0.5" height="0.5" style="border:none" aria-hidden="true"></canvas>
+        <p id="diagramDesc" class="text-muted small" hidden></p>
+        <div id="a" style="color:#b00020"></div>
+      </div>
     </div>
-    <footer class="container-fluid text-center">
+  </div>
 
-        <a href="https://librecounter.org/referer/show" target="_blank">
-        <img src="https://librecounter.org/counter.svg" referrerPolicy="unsafe-url" />
-        </a>
-    
-        <p>Designed to aid revision for the electrical principles element of the RAF Aerospace Eng Tech Course.</p>
-        <p>Designed and built by Mark Butler, APO, RAF Cosford</p>
-    </footer>
-</div>
-<script src="seriesr_module.js"></script>
-<script src="parallelr_module.js"></script>
-<script src="3rcombo_module.js"></script>
-<script src="4rcombo1_module.js"></script>
-<script src="4rcombo2_module.js"></script>
-<script src="5rcombo1_module.js"></script>
-<script src="6rcombo1_module.js"></script>
-<script src="6rcombo2_module.js"></script>
-<script src="utils_rnet_module.js"></script>
+  <footer class="container text-center text-muted py-4 border-top mt-4">
+    <p class="mb-1">Designed to aid revision for resistor networks on the RAF Aerospace Eng Tech Course.</p>
+    <p class="mb-0">Designed and built by Mark Butler, APO, RAF Cosford</p>
+    <p class="mb-0 mt-2"><a href="accessibility.html">Accessibility statement</a></p>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
 </body>
-
 </html>

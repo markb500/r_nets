@@ -1,0 +1,49 @@
+/* R Nets — complements Bootstrap layout used by other revision apps */
+
+.skip-link {
+  position: absolute;
+  left: 0.5rem;
+  top: -3rem;
+  z-index: 100;
+  padding: 0.5rem 0.75rem;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+.skip-link:focus {
+  top: 0.5rem;
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+.topic-btn.active {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #fff;
+}
+
+#myCanvas {
+  display: block;
+  margin: 0.5rem 0;
+  max-width: 100%;
+}
+
+#diagramDesc[hidden] {
+  display: none !important;
+}
+
+#colourSelect {
+  max-width: 12rem;
+}
+
+#a {
+  visibility: hidden;
+}
+
+.btn:focus-visible,
+.topic-btn:focus-visible,
+#colourSelect:focus-visible {
+  outline: 3px solid #005fcc;
+  outline-offset: 2px;
+}
